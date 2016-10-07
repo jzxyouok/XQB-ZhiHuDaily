@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftSideBarController">
+            <connections>
+                <outlet property="tableView" destination="LLn-oa-Pdm" id="GqW-44-udz"/>
+                <outlet property="view" destination="kDg-Rp-G47" id="rIe-MO-1Kv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="kDg-Rp-G47">
+            <rect key="frame" x="0.0" y="0.0" width="220" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jc3-U4-CIa">
+                    <rect key="frame" x="15" y="30" width="190" height="35"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="   请登录" image="Menu_Avatar">
+                        <color key="titleColor" white="0.90322608280000005" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3p3-Fr-bav">
+                    <rect key="frame" x="15" y="75" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="O9E-iM-6f2"/>
+                        <constraint firstAttribute="height" constant="44" id="l6G-Rl-GzB"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-20" minY="20" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="收藏" image="Menu_Icon_Collect">
+                        <color key="titleColor" white="0.90322608280000005" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8JM-AZ-gph">
+                    <rect key="frame" x="69" y="75" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="WAP-OG-Cr4"/>
+                        <constraint firstAttribute="height" constant="44" id="gnY-AU-UNk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-20" minY="20" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="10" minY="-20" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="消息" image="Menu_Icon_Message">
+                        <color key="titleColor" white="0.90322608280000005" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Am-BI-DJi">
+                    <rect key="frame" x="128" y="75" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="1uu-p3-SGw"/>
+                        <constraint firstAttribute="width" constant="44" id="7qx-e0-85V"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                    <inset key="titleEdgeInsets" minX="-15" minY="20" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="15" minY="-20" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="设置" image="Menu_Icon_Setting">
+                        <color key="titleColor" white="0.90322608280000005" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvP-Xe-KOv">
+                    <rect key="frame" x="15" y="518" width="80" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="NHB-Tt-kBS"/>
+                        <constraint firstAttribute="width" constant="80" id="sxY-gI-FmK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="  完成" image="Menu_Download">
+                        <color key="titleColor" white="0.90322608280000005" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcN-Hf-dfF">
+                    <rect key="frame" x="110" y="518" width="80" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ATd-Id-YpH"/>
+                        <constraint firstAttribute="width" constant="80" id="sfB-2L-kto"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="  夜间" image="Menu_Dark">
+                        <color key="titleColor" white="0.90322608280000005" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LLn-oa-Pdm">
+                    <rect key="frame" x="0.0" y="119" width="220" height="399"/>
+                    <color key="backgroundColor" white="0.19762541118421054" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.19759971217105263" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Jc3-U4-CIa" firstAttribute="top" secondItem="kDg-Rp-G47" secondAttribute="top" constant="30" id="3g9-VC-7Fz"/>
+                <constraint firstItem="3p3-Fr-bav" firstAttribute="top" secondItem="Jc3-U4-CIa" secondAttribute="bottom" constant="10" id="4Pq-bP-Pyv"/>
+                <constraint firstItem="LLn-oa-Pdm" firstAttribute="top" secondItem="5Am-BI-DJi" secondAttribute="bottom" id="9X1-cl-avq"/>
+                <constraint firstItem="Jc3-U4-CIa" firstAttribute="leading" secondItem="kDg-Rp-G47" secondAttribute="leading" constant="15" id="Ar2-vg-w52"/>
+                <constraint firstAttribute="trailing" secondItem="Jc3-U4-CIa" secondAttribute="trailing" constant="15" id="KnO-WL-oUy"/>
+                <constraint firstItem="8JM-AZ-gph" firstAttribute="leading" secondItem="3p3-Fr-bav" secondAttribute="trailing" constant="10" id="LMp-jQ-wUG"/>
+                <constraint firstItem="LcN-Hf-dfF" firstAttribute="top" secondItem="LLn-oa-Pdm" secondAttribute="bottom" id="Mbv-1O-9WX"/>
+                <constraint firstItem="5Am-BI-DJi" firstAttribute="top" secondItem="Jc3-U4-CIa" secondAttribute="bottom" constant="10" id="TqC-Vc-Nwf"/>
+                <constraint firstItem="8JM-AZ-gph" firstAttribute="top" secondItem="Jc3-U4-CIa" secondAttribute="bottom" constant="10" id="Tzv-Zx-pEs"/>
+                <constraint firstItem="5Am-BI-DJi" firstAttribute="leading" secondItem="8JM-AZ-gph" secondAttribute="trailing" constant="15" id="WCM-jU-wh9"/>
+                <constraint firstItem="LcN-Hf-dfF" firstAttribute="leading" secondItem="JvP-Xe-KOv" secondAttribute="trailing" constant="15" id="Y1d-Px-Un8"/>
+                <constraint firstAttribute="bottom" secondItem="LcN-Hf-dfF" secondAttribute="bottom" constant="20" id="ZRv-tA-dp7"/>
+                <constraint firstItem="3p3-Fr-bav" firstAttribute="leading" secondItem="kDg-Rp-G47" secondAttribute="leading" constant="15" id="aJ7-Qu-Ief"/>
+                <constraint firstItem="LLn-oa-Pdm" firstAttribute="leading" secondItem="kDg-Rp-G47" secondAttribute="leading" id="cWz-xP-XtF"/>
+                <constraint firstAttribute="trailing" secondItem="LLn-oa-Pdm" secondAttribute="trailing" id="fgA-TH-4C9"/>
+                <constraint firstItem="JvP-Xe-KOv" firstAttribute="leading" secondItem="kDg-Rp-G47" secondAttribute="leading" constant="15" id="hnZ-Yb-l7c"/>
+                <constraint firstAttribute="bottom" secondItem="JvP-Xe-KOv" secondAttribute="bottom" constant="20" id="jc6-Wr-dH5"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="1" y="485"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Menu_Avatar" width="35" height="35"/>
+        <image name="Menu_Dark" width="22" height="22"/>
+        <image name="Menu_Download" width="22" height="22"/>
+        <image name="Menu_Icon_Collect" width="20" height="20"/>
+        <image name="Menu_Icon_Message" width="20" height="20"/>
+        <image name="Menu_Icon_Setting" width="20" height="20"/>
+    </resources>
+</document>
