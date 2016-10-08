@@ -54,6 +54,7 @@
     return self;
 }
 
+#pragma mark - other methods
 - (void)setProcess:(CGFloat) process
 {
     if (!_refresh) {

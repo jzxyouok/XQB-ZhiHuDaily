@@ -41,6 +41,7 @@
     return cell;
 }
 
+#pragma mark - setter and getter
 - (void)setStoryModel:(StoryModel *)storyModel
 {
     _storyModel = storyModel;

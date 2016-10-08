@@ -70,6 +70,7 @@
     [UIApplication sharedApplication].statusBarStyle = self.oldStyle;
 }
 
+#pragma mark - web view delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -90,6 +91,7 @@
 //    NSLog(@"%s %@",__func__,self.titleLabel.text);
 }
 
+#pragma mark - other methods
 - (void)popViewController
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -125,6 +127,7 @@
     self.toolBarNextButton.enabled = self.webView.canGoForward;
 }
 
+#pragma mark - setter and getter
 - (void)setUrl:(NSURL *)url
 {
     _url = url;

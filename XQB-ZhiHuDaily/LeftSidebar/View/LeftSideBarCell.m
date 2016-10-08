@@ -25,6 +25,7 @@
     return self;
 }
 
+#pragma mark - setter and getter
 - (void)setDetail:(NSString *)detail
 {
     _detail = detail;

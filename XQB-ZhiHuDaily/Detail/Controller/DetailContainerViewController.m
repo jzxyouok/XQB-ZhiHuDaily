@@ -53,6 +53,7 @@
     [delegate.mainViewController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
 }
 
+#pragma mark - other methods
 - (DetailViewController *)configDetailViewController
 {
     DetailViewController *dvc = [[DetailViewController alloc]init];
@@ -99,6 +100,25 @@
     }];
 }
 
+- (void)share
+{
+    //    NSLog(@"%s %@",__func__, self.detailStory.share_url);
+    //            [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:self.detailStory.share_url];
+    [UMSocialData defaultData].extConfig.title = self.detailStory.title;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = self.detailStory.share_url;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = self.detailStory.share_url;
+    [UMSocialData defaultData].extConfig.sinaData.shareText = self.detailStory.share_url;
+    //            [UMSocialData defaultData].extConfig.sinaData.urlResource.url = self.detailStory.share_url;
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:UmengAppkey
+                                      shareText:self.detailStory.title
+                                     shareImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.detailStory.image]]]
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToDouban,UMShareToTencent,UMShareToRenren]
+                                       delegate:nil];
+}
+
+#pragma mark - detail view delegate
 - (void)detaileViewScrollToPrevWithStoryId:(NSNumber *)storyId
 {
     self.storyId = storyId;
@@ -111,6 +131,7 @@
     [self containerViewScrollToPage:2];
 }
 
+#pragma mark - toolbar delegate
 - (void)buttonTouchUpWithTag:(NSInteger)tag
 {
     switch (tag) {
@@ -131,24 +152,7 @@
     }
 }
 
-- (void)share
-{
-//    NSLog(@"%s %@",__func__, self.detailStory.share_url);
-    //            [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:self.detailStory.share_url];
-    [UMSocialData defaultData].extConfig.title = self.detailStory.title;
-    [UMSocialData defaultData].extConfig.wechatSessionData.url = self.detailStory.share_url;
-    [UMSocialData defaultData].extConfig.wechatTimelineData.url = self.detailStory.share_url;
-    [UMSocialData defaultData].extConfig.sinaData.shareText = self.detailStory.share_url;
-    //            [UMSocialData defaultData].extConfig.sinaData.urlResource.url = self.detailStory.share_url;
-    
-    [UMSocialSnsService presentSnsIconSheetView:self
-                                         appKey:UmengAppkey
-                                      shareText:self.detailStory.title
-                                     shareImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.detailStory.image]]]
-                                shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToDouban,UMShareToTencent,UMShareToRenren]
-                                       delegate:nil];
-}
-
+#pragma mark - setter and getter
 - (DetailToolBar *)detailToolBar
 {
     if (!_detailToolBar) {

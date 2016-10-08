@@ -32,9 +32,9 @@
     [self showLaunchImage];
 }
 
+#pragma mark - other methods
 - (void)showLaunchImage
 {
-    
     [NetworkTool get:@"http://news-at.zhihu.com/api/4/start-image/1080*1776" params:nil success:^(id json) {
         
         SDWebImageManager *manager = [SDWebImageManager sharedManager];
@@ -82,6 +82,7 @@
     }];
 }
 
+#pragma mark - setter and getter
 - (UIImageView *)imageView
 {
     if (!_imageView) {

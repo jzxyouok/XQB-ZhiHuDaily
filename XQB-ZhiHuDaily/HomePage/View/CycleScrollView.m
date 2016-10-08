@@ -208,6 +208,7 @@
     return cycleView;
 }
 
+#pragma mark - setter and getter
 - (void)setTopStories:(NSArray *)topStories
 {
     _topStories = topStories;
@@ -234,6 +235,7 @@
     [self startTimer];
 }
 
+#pragma mark - other methods
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
     UIScrollView *scrollView = object;

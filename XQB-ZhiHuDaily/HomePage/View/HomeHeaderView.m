@@ -31,6 +31,7 @@
     self.textLabel.center = center;
 }
 
+#pragma mark - setter and getter
 - (void)setDate:(NSString *)date
 {
     _date = date;

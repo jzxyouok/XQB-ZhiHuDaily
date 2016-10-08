@@ -52,6 +52,7 @@ static NSString *reuseIdentifier = @"leftSideBarCell";
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - setter and getter
 - (NSMutableArray *)themesArry
 {
     if (!_themesArry) {
@@ -66,7 +67,7 @@ static NSString *reuseIdentifier = @"leftSideBarCell";
     return _themesArry;
 }
 
-#pragma mark -TableView数据源
+#pragma mark - table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -90,6 +91,7 @@ static NSString *reuseIdentifier = @"leftSideBarCell";
     return cell;
 }
 
+#pragma mark - table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 //    NSLog(@"%s %@",__func__, indexPath);

@@ -64,31 +64,12 @@
     [self.webView.scrollView removeObserver:self.footerView forKeyPath:@"contentOffset"];
 }
 
+#pragma mark - web view delegate
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-//    NSLog(@"%s",__func__);
+    //    NSLog(@"%s",__func__);
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     [self setupHeaderView];
-}
-
-- (void)setupHeaderView
-{
-    if (self.detailStory.image) {
-        if ([self.storyTool isFirstStoryId:self.storyId]) {
-            self.headerLabel.y = 40;
-            [self.topImageView addSubview:self.headerLabel];
-        } else {
-            [self.topImageView addSubview:self.headerView];
-        }
-    } else {
-        if ([self.storyTool isFirstStoryId:self.storyId]) {
-            self.headerLabel.y = -40;
-            [self.webView.scrollView addSubview:self.headerLabel];
-        } else {
-            self.headerView.y = -40;
-            [self.webView.scrollView addSubview:self.headerView];
-        }
-    }
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
@@ -140,6 +121,27 @@
     return YES;
 }
 
+#pragma mark - other methods
+- (void)setupHeaderView
+{
+    if (self.detailStory.image) {
+        if ([self.storyTool isFirstStoryId:self.storyId]) {
+            self.headerLabel.y = 40;
+            [self.topImageView addSubview:self.headerLabel];
+        } else {
+            [self.topImageView addSubview:self.headerView];
+        }
+    } else {
+        if ([self.storyTool isFirstStoryId:self.storyId]) {
+            self.headerLabel.y = -40;
+            [self.webView.scrollView addSubview:self.headerLabel];
+        } else {
+            self.headerView.y = -40;
+            [self.webView.scrollView addSubview:self.headerView];
+        }
+    }
+}
+
 - (void)nextDetailView
 {
     if (![self.storyTool isLastStoryId:self.storyId]) {
@@ -159,6 +161,7 @@
     }
 }
 
+#pragma mark - setter and getter
 - (DetailFooterView *)footerView
 {
     if (!_footerView) {
@@ -224,7 +227,7 @@
     _storyId = storyId;
     
 //    NSLog(@"%s %@",__func__, storyId);
-    
+    [self showHudInView:self.view hint:@"正在加载..."];
     [DetailStoryModelTool loadDetailStoryWithStoryId:storyId success:^(id obj) {
         self.detailStory = obj;
         
@@ -239,6 +242,7 @@
         }
         
         [self.webView loadHTMLString:self.detailStory.htmlUrl baseURL:nil];
+        [self hideHud];
     }];
 }
 

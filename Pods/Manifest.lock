@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - MBProgressHUD (0.9.2)
+  - MBProgressHUD (1.0.0)
   - MJExtension (3.0.10)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
@@ -34,18 +34,18 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
-  - MBProgressHUD (~> 0.9.2)
+  - MBProgressHUD (~> 1.0.0)
   - MJExtension (~> 3.0.10)
   - MMDrawerController (~> 0.6.0)
   - SDWebImage (~> 3.7.6)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJExtension: d86aacb740c87519d20e3cca55b6fa4be6cc7548
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-PODFILE CHECKSUM: 22923079574dd284f6ae6600a81b9a92cad55c45
+PODFILE CHECKSUM: 6c7f340a8b295f4a59414d82f9f5d8c688e666f8
 
 COCOAPODS: 1.0.0

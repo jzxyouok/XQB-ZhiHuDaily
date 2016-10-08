@@ -82,6 +82,7 @@
     return imageView;
 }
 
+#pragma mark - other methods
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
     UIScrollView *scrollView = object;
@@ -114,6 +115,7 @@
     self.frame = rect;
 }
 
+#pragma mark - setter and getter
 - (void)setDetailModel:(DetailStoryModel *)detailModel
 {
     _detailModel = detailModel;

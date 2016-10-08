@@ -51,7 +51,6 @@
     
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.topCycleScrollView];
-//    [self.tableView addSubview:self.topCycleScrollView];
     [self.view addSubview:self.navigationBar];
     [self.view addSubview:self.navigationTitle];
     [self.view addSubview:self.leftSideBarButton];
@@ -59,7 +58,6 @@
     self.tableView.tableFooterView = [[UIView alloc]init];
     
     __weak typeof(self) weakSelf = self;
-    
     self.topCycleScrollView.touchUpInsideAction = ^(id obj) {
         StoryModel *story = obj;
         [weakSelf pushDetailViewControllerWithStoryId:story.ID];
@@ -80,7 +78,6 @@
 }
 
 #pragma mark - setter and getter
-
 - (UIView *)navigationBar
 {
     if (!_navigationBar) {
@@ -118,24 +115,6 @@
     }
     
     return _leftSideBarButton;
-}
-
-- (void)openLeftSideBar
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [delegate.mainViewController toggleDrawerSide:MMDrawerSideLeft
-                                         animated:YES
-                                       completion:nil];
-}
-
-- (void)updateData
-{
-    [self.storyModelTool updateNewsWithCallBack:^(id obj) {
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-        self.topCycleScrollView.topStories = [StoryModel mj_objectArrayWithKeyValuesArray:[self.sectionModels[0] top_stories]];
-        
-        [self.refreshView stopAnimation];
-    }];
 }
 
 - (RefreshView *)refreshView
@@ -186,7 +165,7 @@
     return _topCycleScrollView;
 }
 
-#pragma mark -TableView数据源
+#pragma mark - table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return self.sectionModels.count;
@@ -208,6 +187,7 @@
     return cell;
 }
 
+#pragma mark - table view delegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
@@ -263,17 +243,6 @@
     }
 }
 
-- (void)pushDetailViewControllerWithStoryId:(NSNumber *)id
-{
-    DetailContainerViewController *dvc = [[DetailContainerViewController alloc]init];
-    //DetailViewController *dvc = [[DetailViewController alloc]init];
-
-    dvc.storyId = id;
-    dvc.storyTool = self.storyModelTool;
-    
-    [self.navigationController pushViewController:dvc animated:YES];
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -281,6 +250,36 @@
     StoryModel *storyModel = [StoryModel mj_objectWithKeyValues: [self.sectionModels[indexPath.section] stories][indexPath.row]];
     
     [self pushDetailViewControllerWithStoryId:storyModel.ID];
+}
+
+#pragma mark - other methods
+- (void)pushDetailViewControllerWithStoryId:(NSNumber *)ID
+{
+    DetailContainerViewController *dvc = [[DetailContainerViewController alloc]init];
+    //DetailViewController *dvc = [[DetailViewController alloc]init];
+    
+    dvc.storyId = ID;
+    dvc.storyTool = self.storyModelTool;
+    
+    [self.navigationController pushViewController:dvc animated:YES];
+}
+
+- (void)openLeftSideBar
+{
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate.mainViewController toggleDrawerSide:MMDrawerSideLeft
+                                         animated:YES
+                                       completion:nil];
+}
+
+- (void)updateData
+{
+    [self.storyModelTool updateNewsWithCallBack:^(id obj) {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
+        self.topCycleScrollView.topStories = [StoryModel mj_objectArrayWithKeyValuesArray:[self.sectionModels[0] top_stories]];
+        
+        [self.refreshView stopAnimation];
+    }];
 }
 
 @end

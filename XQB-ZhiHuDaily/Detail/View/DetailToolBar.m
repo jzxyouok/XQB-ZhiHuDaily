@@ -71,14 +71,6 @@
     _commentLabel.height = _commentButton.height * 0.2;
 }
 
-- (IBAction)touchUpToolBarButton:(UIButton *)sender
-{
-//    NSLog(@"%s %ld",__func__, (long)sender.tag);
-    if ([self.delegate respondsToSelector:@selector(buttonTouchUpWithTag:)]) {
-        [self.delegate buttonTouchUpWithTag:sender.tag];
-    }
-}
-
 - (UIButton *)buttonWithImageName:(NSString *)imageName tag:(NSInteger)tag
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -94,6 +86,16 @@
     return button;
 }
 
+#pragma mark - action
+- (IBAction)touchUpToolBarButton:(UIButton *)sender
+{
+    //    NSLog(@"%s %ld",__func__, (long)sender.tag);
+    if ([self.delegate respondsToSelector:@selector(buttonTouchUpWithTag:)]) {
+        [self.delegate buttonTouchUpWithTag:sender.tag];
+    }
+}
+
+#pragma mark - setter and getter
 - (UIButton *)backButton
 {
     if (!_backButton) {

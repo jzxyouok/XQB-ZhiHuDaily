@@ -20,6 +20,7 @@
 
 @implementation StoryModelTool
 
+#pragma mark - setter and getter
 - (NSMutableArray *)newsIds
 {
     if (!_newsIds) {
@@ -38,7 +39,8 @@
     return _newsItems;
 }
 
-- (void) loadNewsWithCallBack:(CallBack)callBack
+#pragma mark - other methods
+- (void)loadNewsWithCallBack:(CallBack)callBack
 {
     [NetworkTool get:@"http://news-at.zhihu.com/api/4/news/latest" params:nil success:^(id json) {
         SectionModel *news = [SectionModel mj_objectWithKeyValues:json];
@@ -51,7 +53,7 @@
     }];
 }
 
-- (void) updateNewsWithCallBack:(CallBack)callBack
+- (void)updateNewsWithCallBack:(CallBack)callBack
 {
     [NetworkTool get:@"http://news-at.zhihu.com/api/4/news/latest" params:nil success:^(id json) {
         SectionModel *news = [SectionModel mj_objectWithKeyValues:json];
@@ -63,7 +65,7 @@
     }];
 }
 
-- (void) loadOldNewsWithCallBack:(CallBack)callBack
+- (void)loadOldNewsWithCallBack:(CallBack)callBack
 {
     if (self.isLoading) {
         return;

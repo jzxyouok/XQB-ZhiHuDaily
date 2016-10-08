@@ -38,6 +38,7 @@
 		1141E8601D7464EC005439DA /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1141E85F1D7464EC005439DA /* libiconv.tbd */; };
 		1141E8621D7464F7005439DA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1141E8611D7464F7005439DA /* libsqlite3.tbd */; };
 		1141E8641D746505005439DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1141E8631D746505005439DA /* libz.tbd */; };
+		117699661DA928F20054C086 /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 117699651DA928F20054C086 /* UIViewController+HUD.m */; };
 		117DDBF71DA7EFFF003FE6AD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DDBF61DA7EFFF003FE6AD /* MainViewController.m */; };
 		117DDC041DA7F043003FE6AD /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DDBF91DA7F043003FE6AD /* CycleScrollView.m */; };
 		117DDC051DA7F043003FE6AD /* HomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DDBFB1DA7F043003FE6AD /* HomeHeaderView.m */; };
@@ -159,6 +160,8 @@
 		1141E85F1D7464EC005439DA /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		1141E8611D7464F7005439DA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1141E8631D746505005439DA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		117699641DA928F20054C086 /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+HUD.h"; path = "Other/Category/UIViewController+HUD.h"; sourceTree = "<group>"; };
+		117699651DA928F20054C086 /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+HUD.m"; path = "Other/Category/UIViewController+HUD.m"; sourceTree = "<group>"; };
 		117DDBF51DA7EFFF003FE6AD /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Main/Controller/MainViewController.h; sourceTree = "<group>"; };
 		117DDBF61DA7EFFF003FE6AD /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Main/Controller/MainViewController.m; sourceTree = "<group>"; };
 		117DDBF81DA7F043003FE6AD /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CycleScrollView.h; path = HomePage/View/CycleScrollView.h; sourceTree = "<group>"; };
@@ -622,6 +625,8 @@
 		11C779CA1D75CE54007A1FC6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				117699641DA928F20054C086 /* UIViewController+HUD.h */,
+				117699651DA928F20054C086 /* UIViewController+HUD.m */,
 				117DDC141DA7F08A003FE6AD /* UINavigationController+FDFullscreenPopGesture.h */,
 				117DDC151DA7F08A003FE6AD /* UINavigationController+FDFullscreenPopGesture.m */,
 				117DDC161DA7F08A003FE6AD /* UIView+Category.h */,
@@ -925,6 +930,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117699661DA928F20054C086 /* UIViewController+HUD.m in Sources */,
 				117DDC191DA7F08A003FE6AD /* UIView+Category.m in Sources */,
 				117DDC111DA7F070003FE6AD /* MMExampleDrawerVisualStateManager.m in Sources */,
 				117DDC061DA7F043003FE6AD /* HomePageCell.m in Sources */,

@@ -110,23 +110,6 @@
     return _leftSideBarButton;
 }
 
-- (void)openLeftSideBar
-{
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
-    [delegate.mainViewController toggleDrawerSide:MMDrawerSideLeft
-                                         animated:YES
-                                       completion:nil];
-}
-
-- (void)updateData
-{
-    [self.themesStoryModelTool loadThemesWithThemesId:self.themes.ID success:^(id obj) {
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
-        
-        [self.refreshView stopAnimation];
-    }];
-}
-
 - (RefreshView *)refreshView
 {
     if (!_refreshView) {
@@ -156,7 +139,45 @@
     return _tableView;
 }
 
-#pragma mark -TableView数据源
+- (ThemesStoryModelTool *)themesStoryModelTool
+{
+    if (!_themesStoryModelTool) {
+        _themesStoryModelTool = [[ThemesStoryModelTool alloc]init];
+    }
+    
+    return  _themesStoryModelTool;
+}
+
+- (void)setThemes:(ThemesModel *)themes
+{
+    _themes = themes;
+    
+    //    NSLog(@"%s",__func__);
+    self.tableView.contentOffset = CGPointMake(0, 0);
+    
+    self.navigationTitle.attributedText = [[NSAttributedString alloc]initWithString:themes.name
+                                                                         attributes:@{
+                                                                                      NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]
+                                                                                      }];
+    [self.navigationTitle sizeToFit];
+    self.navigationTitle.centerX = self.navigationBar.centerX;
+    self.refreshView.frame = CGRectMake(self.navigationTitle.x - 25, 20 + (kHeaderViewHeight - 20) / 2 + 2, 20, 20);
+    
+    //    NSLog(@"%s %@ %@",__func__, self.themesStoryModelTool, themes.ID);
+    
+    [self.themesStoryModelTool loadThemesWithThemesId:themes.ID success:^(ThemesStoryModel *obj) {
+        
+        self.stories = [StoryModel mj_objectArrayWithKeyValuesArray:obj.stories];
+        
+        [self.topImageView sd_setImageWithURL:[NSURL URLWithString:obj.background]
+                             placeholderImage:[UIImage imageNamed:@"Image_Preview"]];
+        
+        [self.tableView reloadData];
+    }];
+}
+
+
+#pragma mark - table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -178,6 +199,7 @@
     return cell;
 }
 
+#pragma mark - table view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offsetY = scrollView.contentOffset.y + scrollView.contentInset.top;
@@ -195,6 +217,16 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    StoryModel *storyModel = self.stories[indexPath.row];
+    
+    [self pushDetailViewControllerWithStoryId:storyModel.ID];
+}
+
+#pragma mark - other methods
 - (void)pushDetailViewControllerWithStoryId:(NSNumber *)storyId
 {
     DetailContainerViewController *dvc = [[DetailContainerViewController alloc]init];
@@ -205,53 +237,21 @@
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)openLeftSideBar
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    StoryModel *storyModel = self.stories[indexPath.row];
-    
-    [self pushDetailViewControllerWithStoryId:storyModel.ID];
+    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate.mainViewController toggleDrawerSide:MMDrawerSideLeft
+                                         animated:YES
+                                       completion:nil];
 }
 
-
-- (ThemesStoryModelTool *)themesStoryModelTool
+- (void)updateData
 {
-    if (!_themesStoryModelTool) {
-        _themesStoryModelTool = [[ThemesStoryModelTool alloc]init];
-    }
-    
-    return  _themesStoryModelTool;
-}
-
-- (void)setThemes:(ThemesModel *)themes
-{
-    _themes = themes;
-    
-//    NSLog(@"%s",__func__);
-    self.tableView.contentOffset = CGPointMake(0, 0);
-    
-    self.navigationTitle.attributedText = [[NSAttributedString alloc]initWithString:themes.name
-                                                                         attributes:@{
-                                                                                      NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]
-                                                                                      }];
-    [self.navigationTitle sizeToFit];
-    self.navigationTitle.centerX = self.navigationBar.centerX;
-    self.refreshView.frame = CGRectMake(self.navigationTitle.x - 25, 20 + (kHeaderViewHeight - 20) / 2 + 2, 20, 20);
-    
-//    NSLog(@"%s %@ %@",__func__, self.themesStoryModelTool, themes.ID);
-    
-    [self.themesStoryModelTool loadThemesWithThemesId:themes.ID success:^(ThemesStoryModel *obj) {
+    [self.themesStoryModelTool loadThemesWithThemesId:self.themes.ID success:^(id obj) {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationFade];
         
-        self.stories = [StoryModel mj_objectArrayWithKeyValuesArray:obj.stories];
-        
-        [self.topImageView sd_setImageWithURL:[NSURL URLWithString:obj.background]
-                             placeholderImage:[UIImage imageNamed:@"Image_Preview"]];
-        
-        [self.tableView reloadData];
+        [self.refreshView stopAnimation];
     }];
 }
-
-
 
 @end

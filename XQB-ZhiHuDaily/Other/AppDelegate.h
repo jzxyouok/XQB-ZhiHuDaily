@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MainViewController;
-
 #define UmengAppkey @"53290df956240b6b4a0084b3"//@"57a0a3dde0f55ae6b7001a82"//@"53290df956240b6b4a0084b3"
+
+@class MainViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
