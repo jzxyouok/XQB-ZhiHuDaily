@@ -54,7 +54,6 @@
 		117DDC191DA7F08A003FE6AD /* UIView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DDC171DA7F08A003FE6AD /* UIView+Category.m */; };
 		117DDC1E1DA7F0B1003FE6AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DDC1B1DA7F0B1003FE6AD /* AppDelegate.m */; };
 		117DDC1F1DA7F0B1003FE6AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DDC1C1DA7F0B1003FE6AD /* main.m */; };
-		117DDC211DA7F0BC003FE6AD /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 117DDC201DA7F0BC003FE6AD /* Info.plist */; };
 		117DDC241DA7F0DB003FE6AD /* StoryComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DDC231DA7F0DB003FE6AD /* StoryComments.m */; };
 		11A09D051D4DCDEA00127B1B /* LeftSideBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A09D041D4DCDEA00127B1B /* LeftSideBarCell.m */; };
 		11A09D081D4DCE2E00127B1B /* ThemesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A09D071D4DCE2E00127B1B /* ThemesModel.m */; };
@@ -842,7 +841,6 @@
 			files = (
 				1141E8541D745F9F005439DA /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				1141E8251D73DA67005439DA /* UMSCommentInputController.xib in Resources */,
-				117DDC211DA7F0BC003FE6AD /* Info.plist in Resources */,
 				1141E82B1D73DA67005439DA /* UMSShareListController.xib in Resources */,
 				1141E8281D73DA67005439DA /* UMShareEditViewControlleriPad.xib in Resources */,
 				1141E8241D73DA67005439DA /* UMSCommentDetailController.xib in Resources */,

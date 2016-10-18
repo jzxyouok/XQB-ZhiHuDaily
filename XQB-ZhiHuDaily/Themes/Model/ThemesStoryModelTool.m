@@ -21,7 +21,7 @@
 #pragma mark - other methods
 - (void)loadThemesWithThemesId:(NSInteger)themesId success:(CallBack)callBack
 {
-    [NetworkTool get:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/theme/%d", themesId] params:nil success:^(id json) {
+    [NetworkTool get:[NSString stringWithFormat:@"http://news-at.zhihu.com/api/4/theme/%zd", themesId] params:nil success:^(id json) {
         ThemesStoryModel *themesStoryModel = [ThemesStoryModel mj_objectWithKeyValues:json];
         
         self.newsIds = [themesStoryModel.stories valueForKeyPath:@"id"];
